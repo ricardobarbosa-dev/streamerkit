@@ -58,7 +58,7 @@ const faq = [
     ['Quais encoders são compatíveis com o StreamerKit?', 'O StreamerKit é compatível com qualquer encoder que suporte SRT ou SRTLA, incluindo Moblin (iOS/Android), Larix Broadcaster, LiveU, TVU, OBS Studio e FFmpeg. Para streaming IRL, recomendamos Moblin com SRTLA bonding para máxima estabilidade em redes móveis.']];
 $('faqs').innerHTML = faq.map(([q, a]) => `<details class="spot group rounded-xl border border-white/10 bg-white/[0.04]"><summary class="flex cursor-pointer items-center justify-between gap-4 p-5 font-medium focus:outline-none focus-visible:ring-2 focus-visible:ring-red-300 rounded-xl">${q}<svg class="chev h-4 w-4 shrink-0 text-zinc-500 transition-transform" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="m6 9 6 6 6-6" /></svg></summary><p class="px-5 pb-5 text-sm leading-6 text-zinc-400">${a}</p></details>`).join('');
 
-// efeitos
+
 document.documentElement.classList.add('js');
 const bar = $('bar'); const onS = () => bar.dataset.s = scrollY > 10 ? 1 : 0; onS(); addEventListener('scroll', onS, { passive: true });
 $('menu').onclick = e => { const m = $('mnav'), o = m.classList.toggle('hidden'); m.classList.toggle('flex', !o); e.currentTarget.setAttribute('aria-expanded', !o) };
