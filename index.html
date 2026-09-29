@@ -1,0 +1,224 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+  <title>StreamerKit - OBS na Nuvem para Streaming Profissional</title>
+  <link rel="stylesheet" href="assets/css/style.css">
+  <meta name="description"
+    content="Servidor IRL completo na nuvem com SRTLA bonding, proteção contra desconexão (BRB automático), H.265, SRT e ingests no Brasil, EUA e Europa.">
+  <link rel="icon" type="image/png" sizes="32x32" href="/assets/images/favicon.png">
+  <link rel="icon" type="image/png" sizes="16x16" href="/assets/images/favicon.png">
+  <link rel="apple-touch-icon" sizes="180x180" href="/assets/images/favicon.png">
+  <script src="https://cdn.tailwindcss.com"></script>
+  <script>tailwind.config = { theme: { extend: { fontFamily: { display: ['Outfit', 'Poppins', 'system-ui', 'sans-serif'], sans: ['Poppins', 'system-ui', '-apple-system', 'Segoe UI', 'sans-serif'] } } } }</script>
+
+</head>
+
+<body class="font-sans text-zinc-100 antialiased">
+  <a href="#recursos"
+    class="sr-only focus:not-sr-only focus:absolute focus:left-3 focus:top-3 focus:z-50 focus:rounded focus:bg-red-600 focus:px-3 focus:py-2">Pular
+    para o conteúdo principal</a>
+
+  <header class="fixed inset-x-0 top-0 z-30 px-3 pt-3 sm:px-5 sm:pt-4">
+    <div id="bar"
+      class="mx-auto max-w-[1440px] rounded-3xl border border-white/10 bg-white/[0.05] backdrop-blur-xl transition-all duration-300 md:rounded-full">
+      <div class="flex h-16 items-center gap-4 pl-4 pr-2.5 sm:pl-5">
+        <div class="flex flex-1 items-center">
+          <a href="#" class="flex items-center gap-2.5 text-lg font-bold tracking-tight">
+            <span>
+              <img src="/assets/images/logo-horizontal-light.svg" alt="StreamerKit" class="h-10 w-auto">
+
+            </span>
+          </a>
+        </div>
+        <nav class="hidden items-center gap-1 rounded-full  p-1 text-sm text-zinc-300 md:flex">
+          <a href="#recursos" class="navlink">Recursos</a><a href="#pricing" class="navlink">Planos</a><a href="#faq"
+            class="navlink">Perguntas frequentes</a><a href="https://help.streamerkit.net" class="navlink">Central de
+            Ajuda</a>
+        </nav>
+        <div class="flex flex-1 items-center justify-end gap-2 text-sm">
+          <span
+            class="hidden items-center gap-1.5 rounded-full border border-white/10 px-3.5 py-2.5 text-zinc-300 sm:flex"><svg
+              viewBox="0 0 24 24" class="h-4 w-4" fill="none" stroke="currentColor" stroke-width="2">
+              <circle cx="12" cy="12" r="9" />
+              <path d="M3 12h18M12 3c3 3 3 15 0 18M12 3c-3 3-3 15 0 18" />
+            </svg>PT</span>
+          <a href="https://live.streamerkit.net"
+            class="btn-shine rounded-full bg-gradient-to-b from-[#e5484d] to-[#b8262c] ring-1 ring-red-300/20 px-5 py-2.5 font-semibold text-white hover:from-[#ee5a5e] hover:to-[#c9313a] focus:outline-none focus-visible:ring-2 focus-visible:ring-red-200">Entrar</a>
+          <button id="menu" class="grid h-10 w-10 place-items-center rounded-full border border-white/10 md:hidden"
+            aria-label="Abrir menu" aria-expanded="false"><svg viewBox="0 0 24 24" class="h-5 w-5" fill="none"
+              stroke="currentColor" stroke-width="2" stroke-linecap="round">
+              <path d="M4 7h16M4 12h16M4 17h16" />
+            </svg></button>
+        </div>
+      </div>
+      <nav id="mnav" class="hidden flex-col gap-1 border-t border-white/10 p-3 text-sm text-zinc-300 md:hidden">
+        <a href="#recursos" class="navlink">Recursos</a><a href="#pricing" class="navlink">Planos</a><a href="#faq"
+          class="navlink">Perguntas frequentes</a><a href="https://help.streamerkit.net" class="navlink">Central de
+          Ajuda</a>
+      </nav>
+    </div>
+  </header>
+
+  <main class="relative isolate">
+    <div class="pointer-events-none absolute inset-x-0 top-0 -z-10 h-[1200px]"
+      style="background:radial-gradient(80% 45% at 12% 0%,rgba(153,27,27,.30),transparent 70%),radial-gradient(60% 40% at 100% 20%,rgba(127,29,29,.18),transparent 70%),linear-gradient(180deg,#150b10 0%,#0b0709 55%,#09060a 100%)"
+      aria-hidden="true"></div>
+    <!-- section hero -->
+    <div class="relative overflow-hidden">
+      <section
+        class="mx-auto grid max-w-[1440px] items-center gap-16 px-5 pb-20 pt-32 md:pt-36 lg:grid-cols-[1.1fr_1fr] lg:gap-20 lg:px-10 lg:pb-28 lg:pt-40">
+        <div>
+          <h1
+            class="bg-gradient-to-r from-[#ee4850] via-[#f2545a] to-[#f7706c] bg-clip-text font-display text-5xl leading-[1.12] tracking-tight text-transparent sm:text-6xl lg:text-7xl">
+            Streaming Profissional Simplificado</h1>
+          <p class="mt-7 max-w-xl text-lg font-light leading-8 text-zinc-400">Servidor IRL completo na nuvem. SRTLA
+            bonding, proteção contra desconexão, H.265, ingests no Brasil, EUA e Europa. Multi-plataforma simultâneo
+            para Twitch, YouTube e Kick.</p>
+          <div class="mt-10 flex flex-col gap-3 sm:flex-row">
+            <a href="https://live.streamerkit.net"
+              class="btn-shine rounded-full bg-red-400 px-6 py-2.5 text-center text-sm font-semibold text-zinc-950 hover:bg-red-300 focus:outline-none focus-visible:ring-2 focus-visible:ring-red-300">Começar
+              Agora</a>
+            <a href="#pricing"
+              class="rounded-full border border-white/10 bg-white/[0.04] px-6 py-2.5 text-center text-sm font-semibold text-white hover:bg-white/10 focus:outline-none focus-visible:ring-2 focus-visible:ring-red-300">Ver
+              planos</a>
+          </div>
+        </div>
+        <div class="relative">
+          <div class="pointer-events-none absolute -inset-x-8 -inset-y-12 rotate-[9deg]" aria-hidden="true">
+            <span class="absolute left-1/2 top-0 h-px w-[300vw] -translate-x-1/2 bg-white/[0.09]"></span>
+            <span class="absolute bottom-0 left-1/2 h-px w-[300vw] -translate-x-1/2 bg-white/[0.09]"></span>
+            <span class="absolute left-0 top-1/2 h-[300vh] w-px -translate-y-1/2 bg-white/[0.09]"></span>
+            <span class="absolute right-0 top-1/2 h-[300vh] w-px -translate-y-1/2 bg-white/[0.09]"></span>
+            <span
+              class="absolute right-full top-0 mr-24 h-[2px] w-56 -translate-y-1/2 bg-gradient-to-r from-transparent via-red-500 to-orange-300 lg:mr-72"></span>
+            <span
+              class="absolute -left-px top-[58%] h-28 w-[2px] bg-gradient-to-b from-transparent via-fuchsia-400 to-red-500"></span>
+          </div>
+          <div
+            class="float relative rounded-2xl border border-red-300/25 bg-[#0E0D12]/60 p-1.5 shadow-[0_0_90px_-15px_rgba(248,113,113,.5)] backdrop-blur"
+            aria-hidden="true">
+            <div class="rounded-xl border border-white/10 bg-[#131314]">
+              <div class="flex items-center justify-between border-b border-white/10 px-4 py-3">
+                <div class="flex items-center gap-2 text-sm font-medium"><span
+                    class="live h-2 w-2 rounded-full bg-red-500"></span>Ao vivo</div><span
+                  class="text-xs text-zinc-400">Ingest São Paulo</span>
+              </div>
+              <div class="grid grid-cols-3 divide-x divide-white/10 border-b border-white/10 text-center">
+                <div class="px-2 py-4">
+                  <p id="br" class="text-lg font-semibold tabular-nums sm:text-xl">8,4 Mbps</p>
+                  <p class="mt-1 text-xs text-zinc-400">Bitrate</p>
+                </div>
+                <div class="px-2 py-4">
+                  <p class="text-lg font-semibold sm:text-xl">H.265</p>
+                  <p class="mt-1 text-xs text-zinc-400">Codec</p>
+                </div>
+                <div class="px-2 py-4">
+                  <p class="text-lg font-semibold sm:text-xl">3 links</p>
+                  <p class="mt-1 text-xs text-zinc-400">Bonding</p>
+                </div>
+              </div>
+              <ul class="divide-y divide-white/10 text-sm" id="dest"></ul>
+            </div>
+          </div>
+        </div>
+      </section>
+    </div>
+
+    <!-- section highlights -->
+    <section>
+      <div class="mx-auto grid max-w-[1440px] gap-12 px-5 pb-20 pt-2 md:grid-cols-3 lg:px-10" id="highlights"></div>
+    </section>
+
+    <!--  section plans -->
+    <section id="pricing" class="border-t border-white/10">
+      <div class="mx-auto max-w-[1440px] px-5 py-16 lg:px-10 lg:py-24">
+        <h2 class="text-2xl font-bold tracking-tight sm:text-3xl">Planos de Streaming</h2>
+        <p class="mt-2 text-zinc-400">Planos profissionais para streamers sérios</p>
+        <div class="mt-8 inline-flex rounded-full border border-white/10 bg-white/[0.04] p-1 text-sm" role="group"
+          aria-label="Ciclo de cobrança">
+          <button id="b-m" class="rounded-md px-4 py-2 font-medium">Mensal</button>
+          <button id="b-y" class="rounded-md px-4 py-2 font-medium">Anual <span class="ml-1 text-xs opacity-80">2 meses
+              grátis</span></button>
+        </div>
+        <div class="mt-8 grid gap-5 lg:grid-cols-2" id="plans"></div>
+        <p class="mt-6 text-sm text-zinc-500">Ingests extras: R$49,90 cada por mês, com cobrança proporcional.
+          Disponíveis para assinaturas elegíveis no cartão e Pix Automático.</p>
+      </div>
+    </section>
+
+    <!-- resources -->
+    <section id="recursos" class="border-t border-white/10">
+      <div class="mx-auto max-w-[1440px] px-5 py-16 lg:px-10 lg:py-24">
+        <h2 class="text-2xl font-bold tracking-tight sm:text-3xl">Recursos Principais</h2>
+        <div class="mt-10 grid gap-4 md:grid-cols-2 xl:grid-cols-3" id="features"></div>
+      </div>
+    </section>
+
+    <!-- cta -->
+    <section class="border-t border-white/10">
+      <div class="mx-auto max-w-[1440px] px-5 py-20 text-center lg:px-10 lg:py-28">
+        <h2 class="mx-auto max-w-2xl text-2xl font-bold tracking-tight sm:text-4xl">Pronto para Levar seu Stream ao
+          Próximo Nível?</h2>
+        <p class="mt-3 text-zinc-400">Junte-se aos streamers profissionais que escolheram o StreamerKit</p>
+        <a href="https://live.streamerkit.net"
+          class="mt-8 btn-shine inline-block rounded-full bg-[#7f1d24] hover:bg-[#98232c] px-7 py-3 text-sm font-semibold text-white focus:outline-none focus-visible:ring-2 focus-visible:ring-red-300">Começar
+          Agora</a>
+      </div>
+    </section>
+
+    <!-- section faq -->
+    <section id="faq" class="border-t border-white/10">
+      <div class="mx-auto max-w-[1440px] px-5 py-16 lg:px-10 lg:py-24">
+        <h2 class="text-2xl font-bold tracking-tight sm:text-3xl">Perguntas Frequentes</h2>
+        <p class="mt-2 text-zinc-400">Tudo que você precisa saber sobre o StreamerKit</p>
+        <div class="mt-8 grid gap-3 lg:grid-cols-2 lg:items-start" id="faqs"></div>
+      </div>
+    </section>
+  </main>
+  <!-- afooter -->
+  <footer class="border-t border-white/10 bg-black/40">
+    <div class="mx-auto grid max-w-[1440px] gap-10 px-5 py-12 text-sm lg:grid-cols-[2fr_1fr_1fr] lg:px-10">
+      <div>
+        <div class="flex items-center gap-2.5 font-semibold">
+          <img src="/assets/images/logo-horizontal-light.svg" alt="StreamerKit" class="h-8 w-auto mb-4">
+          
+        </div>
+        <p class="mt-4 max-w-md leading-6 text-zinc-500">StreamerKit é a plataforma completa para streamers que querem
+          levar suas transmissões ao próximo nível. OBS na nuvem, multi-plataforma e qualidade profissional.</p>
+      </div>
+      <div>
+        <h3 class="font-semibold">Links</h3>
+        <ul class="mt-4 space-y-2 text-zinc-400">
+          <li><a class="hover:text-white" href="https://live.streamerkit.net">Acessar Plataforma</a></li>
+          <li><a class="hover:text-white" href="#pricing">Planos</a></li>
+          <li><a class="hover:text-white" href="https://help.streamerkit.net">Central de Ajuda</a></li>
+        </ul>
+      </div>
+      <div>
+        <h3 class="font-semibold">Redes Sociais</h3>
+        <ul class="mt-4 space-y-2 text-zinc-400">
+          <li><a class="hover:text-white" href="https://discord.gg/N7ZcUt7epv">Discord</a></li>
+          <li><a class="hover:text-white" href="https://www.instagram.com/streamer.kit/">Instagram</a></li>
+        </ul>
+      </div>
+    </div>
+    <div class="border-t border-white/10">
+      <div
+        class="mx-auto flex max-w-[1440px] flex-col gap-3 px-5 py-6 text-xs text-zinc-500 lg:flex-row lg:justify-between lg:px-10">
+        <span>© 2026 StreamerKit. Todos os direitos reservados.</span>
+        <span class="flex flex-wrap gap-x-5 gap-y-1"><a href="https://streamerkit.net/">Português</a><a
+            href="https://streamerkit.net/en/">English</a><a href="https://streamerkit.net/es/">Español</a><a
+            href="https://streamerkit.net/privacy-policy/">Política de Privacidade</a><a
+            href="https://streamerkit.net/terms-of-service/">Termos de Serviço</a></span>
+      </div>
+    </div>
+  </footer>
+
+  <script src="assets/js/script.js"></script>
+
+</body>
+
+</html>
