@@ -70,14 +70,14 @@ if (!matchMedia('(prefers-reduced-motion:reduce)').matches) { setInterval(() => 
 
 (function () {
     const PARTNERS = [
-        { name: 'Parceiro 1', logo: 'assets/images/partners/jonvlogs.png', url: 'https://www.kick.com/jonvlogs' },
-        { name: 'Parceiro 2', logo: 'assets/images/partners/bdj.png', url: 'https://www.kick.com/jonvlogs' },
+        { name: 'Parceiro 1', logo: 'assets/images/partners/jonvlogs2.png', url: 'https://www.kick.com/jonvlogs' },
+        { name: 'Parceiro 2', logo: 'assets/images/partners/bdj2.png', url: 'https://www.kick.com/jonvlogs' },
         { name: 'Parceiro 3', logo: 'assets/images/partners/sheviii2k.png', url: 'https://kick.com/sheviii2k' },
-        { name: 'Parceiro 4', logo: 'assets/images/partners/jonvlogs.png', url: 'https://www.kick.com/jonvlogs' },
-        { name: 'Parceiro 5', logo: 'assets/images/partners/bdj.png', url: 'https://www.kick.com/jonvlogs' },
+        { name: 'Parceiro 4', logo: 'assets/images/partners/jonvlogs2.png', url: 'https://www.kick.com/jonvlogs' },
+        { name: 'Parceiro 5', logo: 'assets/images/partners/bdj2.png', url: 'https://www.kick.com/jonvlogs' },
         { name: 'Parceiro 6', logo: 'assets/images/partners/sheviii2k.png', url: 'https://kick.com/sheviii2k' },
-        { name: 'Parceiro 7', logo: 'assets/images/partners/jonvlogs.png', url: 'https://www.kick.com/jonvlogs' },
-        { name: 'Parceiro 8', logo: 'assets/images/partners/bdj.png', url: 'https://www.kick.com/jonvlogs' }
+        { name: 'Parceiro 7', logo: 'assets/images/partners/jonvlogs2.png', url: 'https://www.kick.com/jonvlogs' },
+        { name: 'Parceiro 8', logo: 'assets/images/partners/bdj2.png', url: 'https://www.kick.com/jonvlogs' }
     ];
     const SPEED = 60;
     const slider = document.getElementById('partnersSlider'), track = document.getElementById('partners');
@@ -86,7 +86,7 @@ if (!matchMedia('(prefers-reduced-motion:reduce)').matches) { setInterval(() => 
     const card = (p, clone) => {
         const tag = p.url ? 'a' : 'div';
         const attrs = p.url ? ` href="${p.url}" target="_blank" rel="noopener noreferrer" aria-label="${p.name}"${clone ? ' tabindex="-1"' : ''}` : '';
-        return `<div class="slider-item"${clone ? ' aria-hidden="true"' : ''}><${tag}${attrs} class="group flex h-24 items-center justify-center rounded-xl border border-white/10 bg-white/[0.03] px-6 transition hover:border-white/25 hover:bg-white/[0.06] focus:outline-none focus-visible:ring-2 focus-visible:ring-red-300"><img src="${p.logo}" alt="${clone ? '' : p.name}" loading="lazy" draggable="false" class="max-h-14 w-auto opacity-60 grayscale transition duration-300 group-hover:opacity-100 group-hover:grayscale-0" onerror="this.replaceWith(Object.assign(document.createElement('span'),{className:'text-sm font-medium text-zinc-500',textContent:'${p.name}'}))"></${tag}></div>`;
+        return `<div class="slider-item"${clone ? ' aria-hidden="true"' : ''}><${tag}${attrs} class="group flex h-24 items-center justify-center rounded-xl border border-white/10 bg-white/[0.03] px-6 transition hover:border-white/25 hover:bg-white/[0.06] focus:outline-none focus-visible:ring-2 focus-visible:ring-red-300"><img src="${p.logo}" alt="${clone ? '' : p.name}" loading="lazy" draggable="false" class="max-h-24 w-24 opacity-60 grayscale transition duration-300 group-hover:opacity-100 group-hover:grayscale-0" onerror="this.replaceWith(Object.assign(document.createElement('span'),{className:'text-sm font-medium text-zinc-500',textContent:'${p.name}'}))"></${tag}></div>`;
     };
 
     track.innerHTML = PARTNERS.map(p => card(p, false)).join('') + PARTNERS.slice(0, 6).map(p => card(p, true)).join('');
