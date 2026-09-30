@@ -11,7 +11,7 @@
     const watch = el => io ? io.observe(el) : pending.push(el);
 
     const mark = (el, delay) => {
-        if (reduced || !el || el.classList.contains('reveal')) return;
+        if (!el || el.classList.contains('reveal')) return;
         el.classList.add('reveal');
         el.style.setProperty('--d', delay + 'ms');
         watch(el);

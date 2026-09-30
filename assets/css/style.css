@@ -292,8 +292,7 @@ html .reveal.is-visible {
     }
 
     html .reveal {
-        opacity: 1;
         transform: none;
-        transition: none;
+        transition: opacity .4s ease;
     }
 }
