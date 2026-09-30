@@ -67,3 +67,63 @@ document.addEventListener('mousemove', e => { const c = e.target.closest && e.ta
 const io = new IntersectionObserver(es => es.forEach(x => { if (x.isIntersecting) { x.target.classList.add('in'); io.unobserve(x.target) } }), { threshold: .12 });
 document.querySelectorAll('main > section > div').forEach(d => { d.classList.add('rv'); io.observe(d) });
 if (!matchMedia('(prefers-reduced-motion:reduce)').matches) { setInterval(() => { $('br').textContent = (7.9 + Math.random() * 1.1).toFixed(1).replace('.', ',') + ' Mbps' }, 1800) }
+
+(function () {
+    const PARTNERS = [
+        { name: 'Parceiro 1', logo: 'assets/images/partners/jonvlogs.png', url: 'https://www.kick.com/jonvlogs' },
+        { name: 'Parceiro 2', logo: 'assets/images/partners/bdj.png', url: 'https://www.kick.com/jonvlogs' },
+        { name: 'Parceiro 3', logo: 'assets/images/partners/sheviii2k.png', url: 'https://kick.com/sheviii2k' },
+        { name: 'Parceiro 4', logo: 'assets/images/partners/jonvlogs.png', url: 'https://www.kick.com/jonvlogs' },
+        { name: 'Parceiro 5', logo: 'assets/images/partners/bdj.png', url: 'https://www.kick.com/jonvlogs' },
+        { name: 'Parceiro 6', logo: 'assets/images/partners/sheviii2k.png', url: 'https://kick.com/sheviii2k' },
+        { name: 'Parceiro 7', logo: 'assets/images/partners/jonvlogs.png', url: 'https://www.kick.com/jonvlogs' },
+        { name: 'Parceiro 8', logo: 'assets/images/partners/bdj.png', url: 'https://www.kick.com/jonvlogs' }
+    ];
+    const SPEED = 60;
+    const slider = document.getElementById('partnersSlider'), track = document.getElementById('partners');
+    if (!slider || !track) return;
+
+    const card = (p, clone) => {
+        const tag = p.url ? 'a' : 'div';
+        const attrs = p.url ? ` href="${p.url}" target="_blank" rel="noopener noreferrer" aria-label="${p.name}"${clone ? ' tabindex="-1"' : ''}` : '';
+        return `<div class="slider-item"${clone ? ' aria-hidden="true"' : ''}><${tag}${attrs} class="group flex h-24 items-center justify-center rounded-xl border border-white/10 bg-white/[0.03] px-6 transition hover:border-white/25 hover:bg-white/[0.06] focus:outline-none focus-visible:ring-2 focus-visible:ring-red-300"><img src="${p.logo}" alt="${clone ? '' : p.name}" loading="lazy" draggable="false" class="max-h-14 w-auto opacity-60 grayscale transition duration-300 group-hover:opacity-100 group-hover:grayscale-0" onerror="this.replaceWith(Object.assign(document.createElement('span'),{className:'text-sm font-medium text-zinc-500',textContent:'${p.name}'}))"></${tag}></div>`;
+    };
+
+    track.innerHTML = PARTNERS.map(p => card(p, false)).join('') + PARTNERS.slice(0, 6).map(p => card(p, true)).join('');
+
+    const total = PARTNERS.length;
+    const perView = () => parseInt(getComputedStyle(slider).getPropertyValue('--n')) || 2;
+
+    let offset = 0, last = 0, paused = false;
+
+    const step = now => {
+        if (!last) last = now;
+        const dt = Math.min(now - last, 100);
+        last = now;
+        if (!paused) {
+            const loopWidth = (slider.clientWidth / perView()) * total;
+            offset = (offset + (SPEED * dt) / 1000) % loopWidth;
+            track.style.transform = `translateX(${-offset}px)`;
+        }
+        requestAnimationFrame(step);
+    };
+
+    slider.addEventListener('mouseenter', () => { paused = true; });
+    slider.addEventListener('mouseleave', () => { paused = false; });
+
+    requestAnimationFrame(step);
+})();
+
+(function () {
+    const p = location.pathname;
+    const cur = /^\/en(\/|$)/.test(p) ? 'EN' : /^\/es(\/|$)/.test(p) ? 'ES' : 'PT';
+    const btn = document.getElementById('langBtn'), menu = document.getElementById('langMenu');
+    document.getElementById('langCur').textContent = cur;
+    document.querySelectorAll('[data-lang]').forEach(a => {
+        if (a.dataset.lang.toUpperCase() === cur) { a.setAttribute('aria-current', 'true'); a.classList.add('bg-white/10', 'text-white'); }
+    });
+    const close = () => { menu.classList.add('hidden'); btn.setAttribute('aria-expanded', 'false'); };
+    btn.addEventListener('click', e => { e.stopPropagation(); const open = !menu.classList.toggle('hidden'); btn.setAttribute('aria-expanded', open); });
+    document.addEventListener('click', close);
+    document.addEventListener('keydown', e => { if (e.key === 'Escape') close(); });
+})();

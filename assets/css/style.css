@@ -169,6 +169,41 @@ details[open] .chev {
     box-shadow: 0 10px 40px -10px rgba(0, 0, 0, .7);
 }
 
+.slider {
+    --n: 2;
+    overflow: hidden;
+    -webkit-mask-image: linear-gradient(90deg, transparent, #000 8%, #000 92%, transparent);
+    mask-image: linear-gradient(90deg, transparent, #000 8%, #000 92%, transparent);
+}
+
+@media (min-width: 640px) {
+    .slider {
+        --n: 3;
+    }
+}
+
+@media (min-width: 768px) {
+    .slider {
+        --n: 4;
+    }
+}
+
+@media (min-width: 1024px) {
+    .slider {
+        --n: 6;
+    }
+}
+
+.slider-track {
+    display: flex;
+    will-change: transform;
+}
+
+.slider-item {
+    flex: 0 0 calc(100% / var(--n));
+    padding: 0 .5rem;
+}
+
 @media (prefers-reduced-motion:reduce) {
 
     .live,
@@ -190,5 +225,75 @@ details[open] .chev {
 
     .btn-shine::after {
         display: none;
+    }
+}
+
+
+#loader {
+    position: fixed;
+    inset: 0;
+    z-index: 100;
+    display: grid;
+    place-items: center;
+    background: #0b0709;
+    transition: opacity .6s ease, visibility .6s ease;
+    animation: loader-fallback .5s ease 10s forwards;
+}
+
+#loader.is-hidden {
+    opacity: 0;
+    visibility: hidden;
+    pointer-events: none;
+}
+
+#loader img {
+    width: min(220px, 55vw);
+    height: auto;
+    animation: loader-pulse 1.6s ease-in-out infinite;
+}
+
+@keyframes loader-pulse {
+
+    0%,
+    100% {
+        opacity: .45;
+        transform: scale(.96);
+    }
+
+    50% {
+        opacity: 1;
+        transform: scale(1);
+    }
+}
+
+@keyframes loader-fallback {
+    to {
+        opacity: 0;
+        visibility: hidden;
+        pointer-events: none;
+    }
+}
+
+html .reveal {
+    opacity: 0;
+    transform: translateY(28px);
+    transition: opacity .7s cubic-bezier(.22, .61, .36, 1) var(--d, 0ms),
+        transform .7s cubic-bezier(.22, .61, .36, 1) var(--d, 0ms);
+}
+
+html .reveal.is-visible {
+    opacity: 1;
+    transform: none;
+}
+
+@media (prefers-reduced-motion: reduce) {
+    #loader img {
+        animation: none;
+    }
+
+    html .reveal {
+        opacity: 1;
+        transform: none;
+        transition: none;
     }
 }

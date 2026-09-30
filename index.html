@@ -11,12 +11,18 @@
   <link rel="icon" type="image/png" sizes="32x32" href="/assets/images/favicon.png">
   <link rel="icon" type="image/png" sizes="16x16" href="/assets/images/favicon.png">
   <link rel="apple-touch-icon" sizes="180x180" href="/assets/images/favicon.png">
+  <link rel="preload" as="image" href="/assets/images/logo-horizontal-light.svg">
+  <noscript></noscript>
   <script src="https://cdn.tailwindcss.com"></script>
   <script>tailwind.config = { theme: { extend: { fontFamily: { display: ['Outfit', 'Poppins', 'system-ui', 'sans-serif'], sans: ['Poppins', 'system-ui', '-apple-system', 'Segoe UI', 'sans-serif'] } } } }</script>
-
 </head>
 
 <body class="font-sans text-zinc-100 antialiased">
+  <!-- overlay loading -->
+  <div id="loader" role="status" aria-label="Carregando">
+    <img src="/assets/images/logo-horizontal-light.svg" alt="">
+  </div>
+
   <a href="#recursos"
     class="sr-only focus:not-sr-only focus:absolute focus:left-3 focus:top-3 focus:z-50 focus:rounded focus:bg-red-600 focus:px-3 focus:py-2">Pular
     para o conteúdo principal</a>
@@ -29,7 +35,6 @@
           <a href="#" class="flex items-center gap-2.5 text-lg font-bold tracking-tight">
             <span>
               <img src="/assets/images/logo-horizontal-light.svg" alt="StreamerKit" class="h-10 w-auto">
-
             </span>
           </a>
         </div>
@@ -39,12 +44,32 @@
             Ajuda</a>
         </nav>
         <div class="flex flex-1 items-center justify-end gap-2 text-sm">
-          <span
-            class="hidden items-center gap-1.5 rounded-full border border-white/10 px-3.5 py-2.5 text-zinc-300 sm:flex"><svg
-              viewBox="0 0 24 24" class="h-4 w-4" fill="none" stroke="currentColor" stroke-width="2">
-              <circle cx="12" cy="12" r="9" />
-              <path d="M3 12h18M12 3c3 3 3 15 0 18M12 3c-3 3-3 15 0 18" />
-            </svg>PT</span>
+          <div class="relative hidden sm:block">
+            <button id="langBtn" type="button" aria-haspopup="true" aria-expanded="false" aria-label="Idioma"
+              class="flex items-center gap-1.5 rounded-full border border-white/10 px-3.5 py-2.5 text-zinc-300 transition hover:bg-white/5 focus:outline-none focus-visible:ring-2 focus-visible:ring-red-300">
+              <svg viewBox="0 0 24 24" class="h-4 w-4" fill="none" stroke="currentColor" stroke-width="2">
+                <circle cx="12" cy="12" r="9" />
+                <path d="M3 12h18M12 3c3 3 3 15 0 18M12 3c-3 3-3 15 0 18" />
+              </svg>
+              <span id="langCur">PT</span>
+              <svg viewBox="0 0 24 24" class="h-3.5 w-3.5 text-zinc-500" fill="none" stroke="currentColor"
+                stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round">
+                <path d="m6 9 6 6 6-6" />
+              </svg>
+            </button>
+            <ul id="langMenu" role="menu"
+              class="absolute right-0 top-full mt-3 hidden w-44 rounded-2xl border border-white/10 bg-[#121013]/95 p-1.5 shadow-2xl shadow-black/50 backdrop-blur-xl">
+              <li role="none"><a role="menuitem" data-lang="pt" href="/"
+                  class="flex items-center justify-between rounded-xl px-3 py-2.5 text-zinc-300 hover:bg-white/5 hover:text-white"><span>Português</span><b
+                    class="text-xs font-semibold text-zinc-500">PT</b></a></li>
+              <li role="none"><a role="menuitem" data-lang="en" href="/en/"
+                  class="flex items-center justify-between rounded-xl px-3 py-2.5 text-zinc-300 hover:bg-white/5 hover:text-white"><span>English</span><b
+                    class="text-xs font-semibold text-zinc-500">EN</b></a></li>
+              <li role="none"><a role="menuitem" data-lang="es" href="/es/"
+                  class="flex items-center justify-between rounded-xl px-3 py-2.5 text-zinc-300 hover:bg-white/5 hover:text-white"><span>Español</span><b
+                    class="text-xs font-semibold text-zinc-500">ES</b></a></li>
+            </ul>
+          </div>
           <a href="https://live.streamerkit.net"
             class="btn-shine rounded-full bg-gradient-to-b from-[#e5484d] to-[#b8262c] ring-1 ring-red-300/20 px-5 py-2.5 font-semibold text-white hover:from-[#ee5a5e] hover:to-[#c9313a] focus:outline-none focus-visible:ring-2 focus-visible:ring-red-200">Entrar</a>
           <button id="menu" class="grid h-10 w-10 place-items-center rounded-full border border-white/10 md:hidden"
@@ -58,6 +83,14 @@
         <a href="#recursos" class="navlink">Recursos</a><a href="#pricing" class="navlink">Planos</a><a href="#faq"
           class="navlink">Perguntas frequentes</a><a href="https://help.streamerkit.net" class="navlink">Central de
           Ajuda</a>
+        <div class="mt-2 flex gap-2 border-t border-white/10 px-1 pt-3 sm:hidden" aria-label="Idioma">
+          <a data-lang="pt" href="/"
+            class="flex-1 rounded-full border border-white/10 py-2 text-center text-xs font-semibold text-zinc-300">PT</a>
+          <a data-lang="en" href="/en/"
+            class="flex-1 rounded-full border border-white/10 py-2 text-center text-xs font-semibold text-zinc-300">EN</a>
+          <a data-lang="es" href="/es/"
+            class="flex-1 rounded-full border border-white/10 py-2 text-center text-xs font-semibold text-zinc-300">ES</a>
+        </div>
       </nav>
     </div>
   </header>
@@ -132,6 +165,18 @@
       <div class="mx-auto grid max-w-[1440px] gap-12 px-5 pb-20 pt-2 md:grid-cols-3 lg:px-10" id="highlights"></div>
     </section>
 
+    <!-- section partners  -->
+    <section id="parceiros" class="border-t border-white/10" aria-label="Streamers parceiros">
+      <div class="mx-auto max-w-[1440px] px-5 py-14 lg:px-10 lg:py-16">
+        <h2 class="text-center text-xl font-semibold tracking-tight sm:text-2xl">Streamers parceiros</h2>
+        <p class="mt-2 text-center text-sm text-zinc-500">Quem já transmite com o StreamerKit</p>
+        <div class="slider mt-10" id="partnersSlider" role="region" aria-roledescription="carrossel"
+          aria-label="Streamers parceiros">
+          <div class="slider-track" id="partners"></div>
+        </div>
+      </div>
+    </section>
+
     <!--  section plans -->
     <section id="pricing" class="border-t border-white/10">
       <div class="mx-auto max-w-[1440px] px-5 py-16 lg:px-10 lg:py-24">
@@ -178,13 +223,13 @@
       </div>
     </section>
   </main>
-  <!-- afooter -->
+  <!-- footer -->
   <footer class="border-t border-white/10 bg-black/40">
     <div class="mx-auto grid max-w-[1440px] gap-10 px-5 py-12 text-sm lg:grid-cols-[2fr_1fr_1fr] lg:px-10">
       <div>
         <div class="flex items-center gap-2.5 font-semibold">
           <img src="/assets/images/logo-horizontal-light.svg" alt="StreamerKit" class="h-8 w-auto mb-4">
-          
+
         </div>
         <p class="mt-4 max-w-md leading-6 text-zinc-500">StreamerKit é a plataforma completa para streamers que querem
           levar suas transmissões ao próximo nível. OBS na nuvem, multi-plataforma e qualidade profissional.</p>
@@ -218,6 +263,7 @@
   </footer>
 
   <script src="assets/js/script.js"></script>
+  <script src="assets/js/animations.js"></script>
 
 </body>
 
