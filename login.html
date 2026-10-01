@@ -1,0 +1,188 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>Entrar - StreamerKit</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link rel="stylesheet" href="assets/css/login.css">
+    <link rel="icon" type="image/png" sizes="32x32" href="/assets/images/favicon.png">
+    <link rel="icon" type="image/png" sizes="16x16" href="/assets/images/favicon.png">
+    <link rel="apple-touch-icon" sizes="180x180" href="/assets/images/favicon.png">
+    <script src="https://cdn.tailwindcss.com"></script>
+    <script>
+        tailwind.config = {
+            theme: {
+                extend: {
+                    fontFamily: {
+                        sans: ['"Poppins"', 'ui-sans-serif', 'system-ui', 'sans-serif'],
+                        mono: ['"Poppins"', 'ui-monospace', 'monospace']
+                    },
+                    colors: {
+                        base: '#94A3B8',
+                        panel: '#0f0f16',
+                        brand: '#e11d48',
+                        twitch: '#9146ff',
+                        kick: '#53fc18'
+                    }
+                }
+            }
+        }
+    </script>
+</head>
+
+<body class="min-h-screen font-sans text-white antialiased">
+    <div class="flex min-h-screen flex-col">
+        <main class="flex flex-1 flex-col items-center px-4 pt-10 pb-12 sm:px-6 md:pt-14">
+            <header class="flex w-full max-w-md flex-col items-center text-center">
+                <a href="/">
+                    <img src="/assets/images/logo-horizontal-light.svg" alt="StreamerKit" class="h-11 w-auto md:h-14">
+                </a>
+                <p class="mt-4 max-w-xs text-sm leading-relaxed text-slate-400 md:max-w-sm md:text-sm">
+                    A infraestrutura central para gerenciar métricas, chat unificado e overlays em tempo real.
+                </p>
+            </header>
+
+            <section
+                class="card-glow relative mt-10 w-full max-w-md rounded-3xl border border-white/10 bg-panel/90 p-6 shadow-2xl shadow-black/50 sm:p-8 md:mt-16 md:max-w-xl">
+                <div class="text-center">
+                    <h1 class="text-2xl font-bold tracking-tight md:text-3xl">Entrar</h1>
+                    <p class="mx-auto mt-3 max-w-xs text-sm leading-relaxed text-slate-400 md:max-w-sm md:text-sm">
+                        Entre com sua plataforma favorita para sincronizar alertas, chat e overlays em segundos
+                    </p>
+                </div>
+
+                <div class="mt-8 flex flex-col gap-3">
+                    <button type="button" data-provider="twitch"
+                        class="login-btn flex h-14 w-full items-center justify-center gap-3 rounded-xl bg-twitch text-base font-semibold text-white shadow-lg shadow-twitch/20 transition hover:brightness-110 focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-white active:scale-[0.99] disabled:cursor-wait disabled:opacity-70">
+                        <svg class="h-5 w-5" viewBox="0 0 24 24" fill="currentColor" aria-hidden="true">
+                            <path
+                                d="M4.3 2 3 5.7v14.5h5v2.8h2.8l2.8-2.8h4.2L21 15.4V2H4.3Zm14.9 12.2-3 3h-5l-2.6 2.6v-2.6H6.5V3.9h12.7v10.3ZM16 7.3h-1.9v5.1H16V7.3Zm-5 0H9.1v5.1H11V7.3Z" />
+                        </svg>
+                        <span class="btn-label">Continuar com Twitch</span>
+                    </button>
+
+                    <button type="button" data-provider="kick"
+                        class="login-btn flex h-14 w-full items-center justify-center gap-3 rounded-xl bg-kick text-base font-bold text-black shadow-lg shadow-kick/20 transition hover:brightness-110 focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-white active:scale-[0.99] disabled:cursor-wait disabled:opacity-70">
+                        <svg class="h-5 w-5" viewBox="0 0 24 24" fill="currentColor" aria-hidden="true">
+                            <path d="M3 3h5v5h2V6h2V4h2V3h7v5h-2v2h-2v1h-1v2h1v1h2v2h2v5h-7v-1h-2v-2h-2v-2H8v5H3V3Z" />
+                        </svg>
+                        <span class="btn-label">Continuar com Kick</span>
+                    </button>
+                </div>
+
+                <div class="mt-7 border-t border-white/10 pt-6 text-center">
+                    <p class="text-xs leading-relaxed text-slate-500">
+                        Ao entrar, você concorda com os
+                        <a href="https://streamerkit.net/terms-of-service/"
+                            class="text-slate-300 underline underline-offset-2 hover:text-white">Termos de
+                            Serviço</a>
+                        e a
+                        <a href="https://streamerkit.net/privacy-policy/"
+                            class="text-slate-300 underline underline-offset-2 hover:text-white">Política de
+                            Privacidade</a>.
+                    </p>
+                    <div
+                        class="mt-4 inline-flex items-center gap-2 rounded-full bg-black/40 px-3 py-1.5 text-xs text-slate-300">
+                        <svg class="h-3.5 w-3.5 text-emerald-400" viewBox="0 0 24 24" fill="none" stroke="currentColor"
+                            stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
+                            <path d="M12 3 4 6v6c0 4.5 3.4 8 8 9 4.6-1 8-4.5 8-9V6l-8-3Z" />
+                            <path d="m9 12 2 2 4-4" />
+                        </svg>
+                        Autenticação OAuth 2.0 criptografada
+                    </div>
+                </div>
+            </section>
+
+            <section class="mt-14 grid w-full max-w-md grid-cols-1 gap-4 md:mt-20 md:max-w-6xl md:grid-cols-3 md:gap-5"
+                aria-label="Recursos">
+                <article class="rounded-2xl border border-white/10 bg-panel/70 p-5">
+                    <div class="flex items-start justify-between">
+                        <span
+                            class="flex h-10 w-10 items-center justify-center rounded-lg border border-brand/20 bg-brand/10 text-brand">
+                            <svg class="h-5 w-5" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"
+                                stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
+                                <path
+                                    d="M16 16v1a2 2 0 0 1-2 2H3a2 2 0 0 1-2-2V7a2 2 0 0 1 2-2h2m5.7 0H14a2 2 0 0 1 2 2v3.3l1 1L23 7v10" />
+                                <path d="m1 1 22 22" />
+                            </svg>
+                        </span>
+                        <span
+                            class="rounded border border-emerald-500/30 bg-emerald-500/10 px-2 py-1 font-mono text-[11px] tracking-wider text-emerald-400">SINCRONIZADO</span>
+                    </div>
+                    <h2 class="mt-5 text-base font-semibold">Gerenciamento de Transmissões</h2>
+                    <p class="mt-2 text-sm leading-relaxed text-slate-400">
+                        Controle suas transmissões simultâneas na Twitch, Kick e YouTube com chave única de
+                        retransmissão de alta fidelidade.
+                    </p>
+                </article>
+
+                <article class="rounded-2xl border border-white/10 bg-panel/70 p-5">
+                    <div class="flex items-start justify-between">
+                        <span
+                            class="flex h-10 w-10 items-center justify-center rounded-lg border border-brand/20 bg-brand/10 text-brand">
+                            <svg class="h-5 w-5" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"
+                                stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
+                                <path d="M13 2 3 14h9l-1 8 10-12h-9l1-8Z" />
+                            </svg>
+                        </span>
+                        <span
+                            class="flex items-center gap-2 rounded bg-black/40 px-2 py-1 font-mono text-[11px] text-slate-300">
+                            <span class="h-1.5 w-1.5 rounded-full bg-emerald-400"></span>
+                            <span id="bitrate">6.200</span> Kbps
+                        </span>
+                    </div>
+                    <h2 class="mt-5 text-base font-semibold">Estatísticas em Tempo Real</h2>
+                    <p class="mt-2 text-sm leading-relaxed text-slate-400">
+                        Monitore o desempenho do encoder, bitrate dinâmico, contagem unificada de espectadores e
+                        latência de quadro a quadro.
+                    </p>
+                </article>
+
+                <article class="rounded-2xl border border-white/10 bg-panel/70 p-5">
+                    <div class="flex items-start justify-between">
+                        <span
+                            class="flex h-10 w-10 items-center justify-center rounded-lg border border-brand/20 bg-brand/10 text-brand">
+                            <svg class="h-5 w-5" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"
+                                stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
+                                <rect x="3" y="3" width="7" height="7" rx="2" />
+                                <rect x="14" y="3" width="7" height="7" rx="2" />
+                                <rect x="3" y="14" width="7" height="7" rx="2" />
+                                <rect x="14" y="14" width="7" height="7" rx="2" />
+                            </svg>
+                        </span>
+                        <span
+                            class="rounded border border-twitch/40 bg-twitch/10 px-2 py-1 font-mono text-[11px] tracking-wider text-purple-300">OBS
+                            READY</span>
+                    </div>
+                    <h2 class="mt-5 text-base font-semibold">Overlays &amp; Alertas Dinâmicos</h2>
+                    <p class="mt-2 text-sm leading-relaxed text-slate-400">
+                        Widgets com browser source ultra-leves: metas de sub, alertas sonoros e chat consolidado com
+                        filtro anti-toxicidade por IA.
+                    </p>
+                </article>
+            </section>
+        </main>
+
+        <footer class="mx-4 border-t border-white/10 py-6 sm:mx-6 lg:mx-16">
+            <div
+                class="flex flex-col gap-4 text-xs text-slate-500 md:flex-row md:items-center md:justify-between md:px-4">
+                <p class="flex items-start gap-3">
+                    <span class="mt-1 h-1.5 w-1.5 shrink-0 rounded-full bg-brand"></span>
+                    <span>© <span id="year">2026</span> StreamerKit. Todos os direitos reservados. Feito para
+                        criadores de conteúdo.</span>
+                </p>
+                <nav class="flex gap-6 pl-4 md:pl-0" aria-label="Rodapé">
+                    <a href="https://discord.gg/N7ZcUt7epv" class="transition hover:text-white">Discord</a>
+                    <a href="https://www.instagram.com/streamer.kit/" class="transition hover:text-white">Instagram</a>
+                    <a href="https://streamerkit.net/changelog/" class="transition hover:text-white">Changelog v2.4</a>
+                </nav>
+            </div>
+        </footer>
+    </div>
+    <script src="assets/js/login.js"></script>
+</body>
+
+</html>
