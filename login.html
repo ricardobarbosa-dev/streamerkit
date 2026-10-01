@@ -35,7 +35,7 @@
 
 <body class="min-h-screen font-sans text-white antialiased">
     <div class="flex min-h-screen flex-col">
-        <main class="flex flex-1 flex-col items-center px-4 pt-10 pb-12 sm:px-6 md:pt-14">
+        <main class="flex flex-1 flex-col items-center px-4 pt-10 py-24 lg:pb-[16rem] sm:px-6 md:pt-14">
             <header class="flex w-full max-w-md flex-col items-center text-center">
                 <a href="/">
                     <img src="/assets/images/logo-horizontal-light.svg" alt="StreamerKit" class="h-11 w-auto md:h-14">
@@ -46,7 +46,7 @@
             </header>
 
             <section
-                class="card-glow relative mt-10 w-full max-w-md rounded-3xl border border-white/10 bg-panel/90 p-6 shadow-2xl shadow-black/50 sm:p-8 md:mt-16 md:max-w-xl">
+                class="card-glow relative mt-10 w-full max-w-md rounded-3xl border border-white/10 bg-panel/90 p-6 shadow-2xl shadow-black/50 sm:p-8 md:mt-16 md:max-w-[416px]">
                 <div class="text-center">
                     <h1 class="text-2xl font-bold tracking-tight md:text-3xl">Entrar</h1>
                     <p class="mx-auto mt-3 max-w-xs text-sm leading-relaxed text-slate-400 md:max-w-sm md:text-sm">
@@ -54,7 +54,7 @@
                     </p>
                 </div>
 
-                <div class="mt-8 flex flex-col gap-3">
+                <div class="mt-8 flex flex-col gap-8">
                     <button type="button" data-provider="twitch"
                         class="login-btn flex h-14 w-full items-center justify-center gap-3 rounded-xl bg-twitch text-base font-semibold text-white shadow-lg shadow-twitch/20 transition hover:brightness-110 focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-white active:scale-[0.99] disabled:cursor-wait disabled:opacity-70">
                         <svg class="h-5 w-5" viewBox="0 0 24 24" fill="currentColor" aria-hidden="true">
@@ -96,89 +96,48 @@
                 </div>
             </section>
 
-            <section class="mt-14 grid w-full max-w-md grid-cols-1 gap-4 md:mt-20 md:max-w-6xl md:grid-cols-3 md:gap-5"
-                aria-label="Recursos">
-                <article class="rounded-2xl border border-white/10 bg-panel/70 p-5">
-                    <div class="flex items-start justify-between">
-                        <span
-                            class="flex h-10 w-10 items-center justify-center rounded-lg border border-brand/20 bg-brand/10 text-brand">
-                            <svg class="h-5 w-5" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"
-                                stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
-                                <path
-                                    d="M16 16v1a2 2 0 0 1-2 2H3a2 2 0 0 1-2-2V7a2 2 0 0 1 2-2h2m5.7 0H14a2 2 0 0 1 2 2v3.3l1 1L23 7v10" />
-                                <path d="m1 1 22 22" />
-                            </svg>
-                        </span>
-                        <span
-                            class="rounded border border-emerald-500/30 bg-emerald-500/10 px-2 py-1 font-mono text-[11px] tracking-wider text-emerald-400">SINCRONIZADO</span>
-                    </div>
-                    <h2 class="mt-5 text-base font-semibold">Gerenciamento de Transmissões</h2>
-                    <p class="mt-2 text-sm leading-relaxed text-slate-400">
-                        Controle suas transmissões simultâneas na Twitch, Kick e YouTube com chave única de
-                        retransmissão de alta fidelidade.
-                    </p>
-                </article>
 
-                <article class="rounded-2xl border border-white/10 bg-panel/70 p-5">
-                    <div class="flex items-start justify-between">
-                        <span
-                            class="flex h-10 w-10 items-center justify-center rounded-lg border border-brand/20 bg-brand/10 text-brand">
-                            <svg class="h-5 w-5" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"
-                                stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
-                                <path d="M13 2 3 14h9l-1 8 10-12h-9l1-8Z" />
-                            </svg>
-                        </span>
-                        <span
-                            class="flex items-center gap-2 rounded bg-black/40 px-2 py-1 font-mono text-[11px] text-slate-300">
-                            <span class="h-1.5 w-1.5 rounded-full bg-emerald-400"></span>
-                            <span id="bitrate">6.200</span> Kbps
-                        </span>
-                    </div>
-                    <h2 class="mt-5 text-base font-semibold">Estatísticas em Tempo Real</h2>
-                    <p class="mt-2 text-sm leading-relaxed text-slate-400">
-                        Monitore o desempenho do encoder, bitrate dinâmico, contagem unificada de espectadores e
-                        latência de quadro a quadro.
-                    </p>
-                </article>
-
-                <article class="rounded-2xl border border-white/10 bg-panel/70 p-5">
-                    <div class="flex items-start justify-between">
-                        <span
-                            class="flex h-10 w-10 items-center justify-center rounded-lg border border-brand/20 bg-brand/10 text-brand">
-                            <svg class="h-5 w-5" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"
-                                stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
-                                <rect x="3" y="3" width="7" height="7" rx="2" />
-                                <rect x="14" y="3" width="7" height="7" rx="2" />
-                                <rect x="3" y="14" width="7" height="7" rx="2" />
-                                <rect x="14" y="14" width="7" height="7" rx="2" />
-                            </svg>
-                        </span>
-                        <span
-                            class="rounded border border-twitch/40 bg-twitch/10 px-2 py-1 font-mono text-[11px] tracking-wider text-purple-300">OBS
-                            READY</span>
-                    </div>
-                    <h2 class="mt-5 text-base font-semibold">Overlays &amp; Alertas Dinâmicos</h2>
-                    <p class="mt-2 text-sm leading-relaxed text-slate-400">
-                        Widgets com browser source ultra-leves: metas de sub, alertas sonoros e chat consolidado com
-                        filtro anti-toxicidade por IA.
-                    </p>
-                </article>
-            </section>
         </main>
 
-        <footer class="mx-4 border-t border-white/10 py-6 sm:mx-6 lg:mx-16">
-            <div
-                class="flex flex-col gap-4 text-xs text-slate-500 md:flex-row md:items-center md:justify-between md:px-4">
-                <p class="flex items-start gap-3">
-                    <span class="mt-1 h-1.5 w-1.5 shrink-0 rounded-full bg-brand"></span>
-                    <span>© <span id="year">2026</span> StreamerKit. Todos os direitos reservados. Feito para
-                        criadores de conteúdo.</span>
-                </p>
-                <nav class="flex gap-6 pl-4 md:pl-0" aria-label="Rodapé">
-                    <a href="https://discord.gg/N7ZcUt7epv" class="transition hover:text-white">Discord</a>
-                    <a href="https://www.instagram.com/streamer.kit/" class="transition hover:text-white">Instagram</a>
-                    <a href="https://streamerkit.net/changelog/" class="transition hover:text-white">Changelog v2.4</a>
-                </nav>
+        <footer class="border-t border-white/10 max-w-[1440px] mx-auto w-full">
+            <div class="mx-auto grid max-w-[1440px] gap-10 px-5 py-12 text-sm lg:grid-cols-[2fr_1fr_1fr] lg:px-10">
+                <div>
+                    <div class="flex items-center gap-2.5 font-semibold">
+                        <img src="/assets/images/logo-horizontal-light.svg" alt="StreamerKit" class="h-8 w-auto mb-4">
+
+                    </div>
+                    <p class="mt-4 max-w-md leading-6 text-zinc-500">StreamerKit é a plataforma completa para streamers
+                        que querem
+                        levar suas transmissões ao próximo nível. OBS na nuvem, multi-plataforma e qualidade
+                        profissional.</p>
+                </div>
+                <div>
+                    <h3 class="font-semibold">Links</h3>
+                    <ul class="mt-4 space-y-2 text-zinc-400">
+                        <li><a class="hover:text-white" href="https://live.streamerkit.net">Acessar Plataforma</a></li>
+                        <li><a class="hover:text-white" href="#pricing">Planos</a></li>
+                        <li><a class="hover:text-white" href="https://help.streamerkit.net">Central de Ajuda</a></li>
+                    </ul>
+                </div>
+                <div>
+                    <h3 class="font-semibold">Redes Sociais</h3>
+                    <ul class="mt-4 space-y-2 text-zinc-400">
+                        <li><a class="hover:text-white" href="https://discord.gg/N7ZcUt7epv">Discord</a></li>
+                        <li><a class="hover:text-white" href="https://www.instagram.com/streamer.kit/">Instagram</a>
+                        </li>
+                    </ul>
+                </div>
+            </div>
+            <div>
+                <div
+                    class="mx-auto flex max-w-[1440px] flex-col gap-3 px-5 py-6 text-xs text-zinc-500 lg:flex-row lg:justify-between lg:px-10">
+                    <span>© 2026 StreamerKit. Todos os direitos reservados.</span>
+                    <span class="flex flex-wrap gap-x-5 gap-y-1"><a href="https://streamerkit.net/">Português</a><a
+                            href="https://streamerkit.net/en/">English</a><a
+                            href="https://streamerkit.net/es/">Español</a><a
+                            href="https://streamerkit.net/privacy-policy/">Política de Privacidade</a><a
+                            href="https://streamerkit.net/terms-of-service/">Termos de Serviço</a></span>
+                </div>
             </div>
         </footer>
     </div>
